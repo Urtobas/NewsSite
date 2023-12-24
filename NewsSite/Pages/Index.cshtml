@@ -1,0 +1,42 @@
+﻿@page "{pageNum:int?}"
+@using NewsSite.HtmlHelpers
+@model IndexModel
+@{
+    ViewData["Title"] = "Главная";
+}
+<h2 class="header-1 shadow p-1">Последние новости</h2>
+<div class="container-fluid">
+    <div class="row">
+        @foreach (var elem in IndexModel.PaginationModel.Result)
+        {
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">
+                        <a class="text-decoration-none header-2 fw-bold"
+                           asp-page="ArticlePage" asp-route-id="@elem.Id">@Html.Raw(elem.ArticleTitle)</a>
+                    </div>
+                    @if (elem.ArticleContent.Length < 200)
+                    {
+                        <div class="card-body text-secondary small">@elem.ArticleContent</div>
+                    }
+                    else
+                    {
+                        <div class="card-body text-secondary small">@elem.ArticleContent.Substring(0,200)...</div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+    <div class="d-flex justify-content-center">
+        <div class="row ">
+            @Html.CreatePagination(IndexModel.PaginationModel.PageCount, IndexModel.PaginationModel.PageSize,
+            IndexModel.PaginationModel.CurrentPage, "Index")
+            <span class="text-secondary small">страница @IndexModel.PaginationModel.CurrentPage из @IndexModel.PaginationModel.PageCount</span>
+        </div>
+    </div>
+   
+
+</div>
+
+
+

@@ -1,0 +1,88 @@
+﻿@page
+@model NewsSite.Areas.Identity.Pages.AddArticleModel
+@{
+    Layout = "/Areas/Identity/Pages/Shared/_Layout.cshtml";
+}
+<form method="post" class="col-sm-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2" enctype="multipart/form-data">
+    <div class="form-floating my-1">
+        <input class="form-control" asp-for="@Model.Article.Author" name="Author" readonly value="@Model.CurrentUser.RealUserName" />
+        <label asp-for="@Model.Article.Author"></label>
+        <span asp-validation-for="@Model.Article.Author" class="text-danger"></span>
+    </div>
+    <div class="form-floating my-1">
+        <input class="form-control" asp-for="@Model.Article.UserEmail" name="UserEmail" readonly value="@User.Identity.Name" />
+        <label asp-for="@Model.Article.UserEmail"></label>
+        <span asp-validation-for="@Model.Article.UserEmail" class="text-danger"></span>
+    </div>
+    <div class="form-floating my-1">
+        <select class="form-select" asp-for="@Model.Article.ArticleCategory" name="ArticleCategoty">
+            @foreach (var elem in Model.CategoryTitles)
+            {
+                <option>@elem.CategoryName</option>
+            }
+        </select>
+        <label asp-for="@Model.Article.ArticleCategory"></label>
+        <span asp-validation-for="@Model.Article.ArticleCategory" class="text-danger"></span>
+    </div>
+
+    <div class="form-floating">
+        <input class="form-control" asp-for="@Model.Article.ArticleTitle" name="ArticleTitle" />
+        <label asp-for="@Model.Article.ArticleTitle"></label>
+        <span asp-validation-for="@Model.Article.ArticleTitle" class="text-danger"></span>
+    </div>
+
+    <div class="btn-group mt-2">
+        <button class="btn btn-secondary btn-sm border-light" id="strong">B</button>
+        <button class="btn btn-secondary btn-sm border-light" id="italics"><i>I</i></button>
+        <button class="btn btn-secondary btn-sm border-light" id="h2">H2</button>
+        <button class="btn btn-secondary btn-sm border-light" id="h3">H3</button>
+        <button class="btn btn-secondary btn-sm border-light" id="h4">H4</button>
+        <button class="btn btn-secondary btn-sm border-light" id="link">Ссылка</button>
+        <button class="btn btn-secondary btn-sm border-light" id="blockquote">Цитата</button>
+        <button class="btn btn-secondary btn-sm border-light" id="img">Фото</button>
+    </div>
+
+    <div class="form-floating my-1">
+        <textarea id="articleContent" class="form-control-plaintext border rounded bg-light" asp-for="@Model.Article.ArticleContent" name="articleContent"
+                  rows="10" placeholder="Текст статьи"></textarea>
+        <span asp-validation-for="@Model.Article.ArticleContent" class="text-danger"></span>
+    </div>
+
+    <div class="form-floating">
+        <input class="form-control" asp-for="@Model.Article.KeyWords" name="keyWords" />
+        <label asp-for="@Model.Article.KeyWords"></label>
+        <span asp-validation-for="@Model.Article.KeyWords" class="text-danger"></span>
+    </div>
+
+    <div class="form-floating my-1">
+        <input id="pathToMainPhoto" class="form-control" asp-for="@Model.Article.PathToMainPhoto" name="pathToMainPhoto" />
+        <label asp-for="@Model.Article.PathToMainPhoto"></label>
+        <span asp-validation-for="@Model.Article.PathToMainPhoto" class="text-danger"></span>
+    </div>
+
+    <div class="form-floating my-1">
+        <div class="d-flex justify-content-around">
+            <label class="form-control">Или загрузить свой файл на сервер</label>
+            <input id="fileUpload" class="form-control" name="fileUpload" type="file" asp-for="@Model.Article.PathToMainPhoto" />
+        </div>
+    </div>
+
+    <div class="form-floating my-1">
+        <input id="datepicker" class="form-control" asp-for="@Model.Article.PublicationDate" name="publicationDate" />
+        <label asp-for="@Model.Article.PublicationDate"></label>
+        <span asp-validation-for="@Model.Article.PublicationDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-floating my-1 border border-secondary p-1 rounded-2">
+        <span><input id="isImportant" class="form-check-inline" asp-for="@Model.Article.IsImportant" name="isImportant" />Пометить как важную</span>
+        <span asp-validation-for="@Model.Article.IsImportant" class="text-danger"></span>
+
+    </div>
+
+    <div class="form-floating d-flex justify-content-end my-2">
+        <button class="btn btn-outline-secondary flex-grow-1" type="submit">Отправить</button>
+    </div>
+
+</form>
+
+

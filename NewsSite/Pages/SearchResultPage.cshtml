@@ -1,0 +1,44 @@
+﻿@page "{pageNum?}"
+@using NewsSite.HtmlHelpers;
+@model NewsSite.Pages.SearchResultPageModel
+@{
+}
+<h2 class="header-1 shadow p-1">Результаты поиска</h2>
+<div class="container-fluid">
+    <div class="row">
+        @if (SearchResultPageModel.PaginationModel.Result == null)
+        {
+            <div>Ничего не найдено</div>
+        }
+        else
+        {
+            @foreach (var elem in SearchResultPageModel.PaginationModel.Result)
+            {
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <a class="text-decoration-none header-2 fw-bold"
+                               asp-page="ArticlePage" asp-route-id="@elem.Id">@Html.Raw(elem.ArticleTitle)</a>
+                        </div>
+                        @if (elem.ArticleContent.Length < 200)
+                        {
+                            <div class="card-body text-secondary small">@elem.ArticleContent</div>
+                        }
+                        else
+                        {
+                            <div class="card-body text-secondary small">@elem.ArticleContent.Substring(0,200)...</div>
+                        }
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+
+     <div class="row">
+        @Html.CreateSearchPagination(SearchResultPageModel.PaginationModel.PageCount, SearchResultPageModel.PaginationModel.PageSize, 
+        SearchResultPageModel.PaginationModel.CurrentPage, "SearchResultPage", @Model.Cache)
+        <span class="text-secondary small">страница @SearchResultPageModel.PaginationModel.CurrentPage из @SearchResultPageModel.PaginationModel.PageCount</span>
+    </div> 
+
+</div>

@@ -1,0 +1,27 @@
+﻿@page
+@using System.Security.Claims;
+@model NewsSite.Areas.Identity.Pages.AdminDashboardUsersModel
+@{
+    Layout = "/Areas/Identity/Pages/Shared/_Layout.cshtml";
+    
+}
+<h2 class="header-1 admin-header-color">Пользователи</h2>
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>Имя</th>
+            <th>Почта</th>
+            <th>Статус</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var elem in @Model.UsersViewModel)
+        {
+            <tr>
+                <td>@elem.RealName</td>
+                <td><a asp-page="UserInfoPage" asp-area="Identity" asp-route-id="@elem.Id">@elem.Email</a></td>
+                <td>@elem.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>

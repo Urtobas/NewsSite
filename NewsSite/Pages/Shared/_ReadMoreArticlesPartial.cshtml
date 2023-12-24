@@ -1,0 +1,17 @@
+﻿@{
+}
+<div class="row">
+    <h2 class="header-2">Читайте также</h2>
+    <div class="container-fluid">
+        <div class="row">
+            @foreach (var elem in IndexModel.ReadMoreArticles)
+            {
+                <div class="my-1">
+                    <img src="~/images/news.svg" style="max-height:20px; max-width:20px;" />
+                    <a class="text-decoration-none header-3" asp-page="ArticlePage" asp-route-id="@elem.Id">@elem.ArticleTitle</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<hr />

@@ -1,0 +1,51 @@
+﻿@page
+@model NewsSite.Areas.Identity.Pages.StatisticsPageModel
+@{
+    Layout = "/Areas/Identity/Pages/Shared/_Layout.cshtml";
+}
+<h1 class="header-1 admin-header-color">Статистика сайта</h1>
+<fieldset>
+    <legent class="header-2">Общие сведения</legent>
+    <table class="table table-sm table-striped">
+        <caption>Таблица 1</caption>
+        <tbody>
+            <tr>
+                <td>Количество статей на сайте</td>
+                <td>@Model.CountArticles</td>
+            </tr>
+            <tr>    
+                <td>Количество категорий статей</td>
+                <td>@Model.CountCategories</td>
+            </tr>
+            <tr>
+                <td>Количество зарегистрированных пользователей</td>
+                <td>@Model.CountUsers</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</fieldset>
+
+<fieldset>
+    <legent class="header-2">Статьи на сайте</legent>
+    <table class="table table-sm table-striped">
+        <caption>Таблица 2</caption>
+        <thead>
+            <tr>
+                <th>Название категории</th>
+                <th>Количество статей</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Categories.Count(); i++)
+            {
+                <tr>
+                    <td>@Model.Categories.ElementAt(i).CategoryName</td>
+                    <td>@Model.EachCategoryCount[i]</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </fieldset>
+

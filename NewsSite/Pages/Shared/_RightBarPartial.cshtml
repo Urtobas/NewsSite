@@ -1,0 +1,42 @@
+﻿@{
+}
+
+<h2 class="header-1 shadow p-1">Популярное</h2>
+<div class="container-fluid">
+
+
+    <div class="row">
+        @foreach (var elem in IndexModel.PopularArticles)
+        {
+            <a class="text-decoration-none header-4 fw-bolder" asp-page="ArticlePage" asp-route-id="@elem.Id">@elem.ArticleTitle</a>
+            <hr />
+        }
+    </div>
+
+
+    <div class="row">
+        <h2 class="header-1 shadow p-1 my-2">Технологии, досуг</h2>
+        @foreach (var elem in IndexModel.SocialArticles)
+        {
+            <div class="card text-white">
+                <img src="@elem.PathToMainPhoto" class="card-img" alt="@elem.ArticleTitle">
+                <div class="card-img-overlay">
+                    <div class="card-title bg-dark bg-opacity-50"><a class="text-white text-decoration-none" asp-page="ArticlePage" asp-route-id="@elem.Id">@elem.ArticleTitle</a></div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="row">
+        <h2 class="header-1 shadow p-1 my-2">Спорт</h2>
+        @foreach(var elem in IndexModel.SportArticles)
+        {
+            <div class="card text-white">
+                <img src="@elem.PathToMainPhoto" class="card-img" alt="@elem.ArticleTitle">
+                <div class="card-img-overlay">
+                    <div class="card-title bg-dark bg-opacity-50"><a class="text-white text-decoration-none" asp-page="ArticlePage" asp-route-id="@elem.Id">@elem.ArticleTitle</a></div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,469 @@
+﻿@page
+@model NewsSite.Areas.Identity.Pages.ColorsSettingsModel
+@{
+    Layout = "/Areas/Identity/Pages/Shared/_Layout.cshtml";
+
+    string[] dropList = new[]
+    {
+    "#750B0B",
+    "DarkSlateGray",
+    "Black",
+    "DimGrey",
+    "DarkSlateGrey",
+    "SlateGrey",
+    "LightSlateGray",
+    "Grey",
+    "LightGray",
+    "Silver",
+    "BlanchedAlmond",
+    "Bisque",
+    "NavajoWhite",
+    "Wheat",
+    "BurlyWood",
+    "Tan",
+
+    "White",
+    "Snow",
+    "Honeydew",
+    "MintCream",
+    "Azure",
+    "AliceBlue",
+    "GhostWhite",
+    "WhiteSmoke",
+    "Seashell",
+    "Beige",
+    "OldLace",
+    "FloralWhite",
+    "Ivory",
+    "AntiqueWhite",
+    "Linen",
+    "LavenderBlush",
+    "MistyRose",
+
+    "RosyBrown",
+    "SandyBrown",
+    "Goldenrod",
+    "DarkGoldenRod",
+    "Peru",
+    "Chocolate",
+    "SaddleBrown",
+    "Sienna",
+    "Brown",
+    "Maroon",
+    "DarkRed",
+    "IndianRed",
+    "OrangeRed",
+    "Red",
+    "Crimson",
+    "FireBrick",
+    "LightCoral",
+    "DarkSalmon",
+    "LightSalmon",
+
+
+    "MediumAquamarine",
+    "DarkSeaGreen",
+    "LightSeaGreen",
+    "DarkCyan",
+    "Teal",
+    "Aqua",
+    "LightCyan",
+    "PaleTurquoise",
+    "Aquamarine",
+    "Turquoise",
+    "MediumTurquoise",
+    "DarkTurquoise",
+    "CadetBlue",
+    "SteelBlue",
+    "PowderBlue",
+    "LightBlue",
+    "LightSteelBlue",
+    "SkyBlue",
+    "LightSkyBlue",
+    "DeepSkyBlue",
+    "DodgerBlue",
+    "CornflowerBlue",
+    "MediumSlateBlue",
+    "RoyalBlue",
+    "Blue",
+    "MediumBlue",
+    "DarkBlue",
+    "Navy",
+    "MidnightBlue",
+
+    "GreenYellow",
+    "Chartreuse",
+    "LawnGreen",
+    "Lime",
+    "LimeGreen",
+    "PaleGreen",
+    "LightGreen",
+    "MediumSpringGreen",
+    "SpringGreen",
+    "MediumSeaGreen",
+    "SeaGreen",
+    "ForestGreen",
+    "Green",
+    "DarkGreen",
+    "YellowGreen",
+    "OliveDrab",
+    "Olive",
+    "DarkOliveGreen",
+    "Lavender",
+    "Thistle",
+    "Plum",
+    "Violet",
+    "Orchid",
+    "Fuchsia",
+    "Magenta",
+    "MediumOrchid",
+    "MediumPurple",
+    "BlueViolet",
+    "DarkViolet",
+    "DarkOrchid",
+    "DarkMagenta",
+    "Purple",
+    "Indigo",
+    "SlateBlue",
+    "DarkSlateBlue"
+    };
+}
+<h1 class="header-1 admin-header-color">Цветовая схема</h1>
+<form method="post" class="admin-font-color">
+    <div class="row">
+        <div class="col-6">
+            <h3 class="header-2 admin-header-color" >Основные цвета</h3>
+            <div class="d-flex">
+                <div class="form-floating m-1 flex-grow-1">
+                    <select class="form-select " id="selectHeaderColor" asp-for="@ColorsSettingsModel.SettingsColor.HeaderColor">
+                        @foreach (string elem in dropList)
+                        {
+                            <option value="@elem" style="background-color: @elem;">@elem</option>
+                        }
+                    </select>
+                    <label asp-for="@ColorsSettingsModel.SettingsColor.HeaderColor" class="" id="labelHeaderColor"></label>
+                </div>
+                <div class="color-sample" style="background-color: @ColorsSettingsModel.SettingsColor.HeaderColor" id="headerColor"></div>
+            </div>
+            <div class="d-flex">
+                <div class="form-floating m-1 flex-grow-1">
+                    <select class="form-select " id="selectHeaderHoverColor" asp-for="@ColorsSettingsModel.SettingsColor.HeaderHoverColor">
+                        @foreach (string elem in dropList)
+                        {
+                            <option value="@elem" style="background-color: @elem;">@elem</option>
+                        }
+                    </select>
+                    <label asp-for="@ColorsSettingsModel.SettingsColor.HeaderHoverColor" class="" id="labelHeaderHoverColor"></label>
+                </div>
+                <div class="color-sample" style="background-color: @ColorsSettingsModel.SettingsColor.HeaderHoverColor" id="headerHoverColor"></div>
+            </div>
+            <div class="d-flex">
+                <div class="form-floating m-1 flex-grow-1">
+                    <select class="form-select " id="selectContextTextColor" asp-for="@ColorsSettingsModel.SettingsColor.ContextTextColor">
+                        @foreach (string elem in dropList)
+                        {
+                            <option value="@elem" style="background-color: @elem;">@elem</option>
+                        }
+                    </select>
+                    <label asp-for="@ColorsSettingsModel.SettingsColor.ContextTextColor" class="" id="labelContextTextColor"></label>
+                </div>
+                <div class="color-sample" style="background-color: @ColorsSettingsModel.SettingsColor.ContextTextColor" id="contextTextColor"></div>
+            </div>
+            <div class="d-flex">
+                <div class="form-floating m-1 flex-grow-1">
+                    <select class="form-select " id="selectBlockquoteTextColor" asp-for="@ColorsSettingsModel.SettingsColor.BlockquoteTextColor">
+                        @foreach (string elem in dropList)
+                        {
+                            <option value="@elem" style="background-color: @elem;">@elem</option>
+                        }
+                    </select>
+                    <label asp-for="@ColorsSettingsModel.SettingsColor.BlockquoteTextColor" id="labelBlockquoteTextColor" class=""></label>
+                </div>
+                <div class="color-sample" style="background-color: @ColorsSettingsModel.SettingsColor.BlockquoteTextColor" id="blockquoteTextColor"></div>
+            </div>
+            <div class="d-flex">
+                <div class="form-floating m-1 flex-grow-1">
+                    <select class="form-select " id="selectBlockquoteBorderColor" asp-for="@ColorsSettingsModel.SettingsColor.BlockquoteBorderColor">
+                        @foreach (string elem in dropList)
+                        {
+                            <option value="@elem" style="background-color: @elem;">@elem</option>
+                        }
+                    </select>
+                    <label asp-for="@ColorsSettingsModel.SettingsColor.BlockquoteBorderColor" class="" id="labelBlockquoteBorderColor"></label>
+                </div>
+                <div class="color-sample" style="background-color: @ColorsSettingsModel.SettingsColor.BlockquoteBorderColor" id="blockquoteBorderColor"></div>
+            </div>
+            <div class="d-flex">
+                <div class="form-floating m-1 flex-grow-1">
+                    <select class="form-select " id="selectLinkColor" asp-for="@ColorsSettingsModel.SettingsColor.LinkColor">
+                        @foreach (string elem in dropList)
+                        {
+                            <option value="@elem" style="background-color: @elem;">@elem</option>
+                        }
+                    </select>
+                    <label asp-for="@ColorsSettingsModel.SettingsColor.LinkColor" class="" id="labelLinkColor"></label>
+                </div>
+                <div class="color-sample" style="background-color: @ColorsSettingsModel.SettingsColor.LinkColor" id="linkColor"></div>
+            </div>
+            <div class="d-flex">
+                <div class="form-floating m-1 flex-grow-1">
+                    <select class="form-select " id="selectLinkHoverColor" asp-for="@ColorsSettingsModel.SettingsColor.LinkHoverColor">
+                        @foreach (string elem in dropList)
+                        {
+                            <option value="@elem" style="background-color: @elem;">@elem</option>
+                        }
+                    </select>
+                    <label asp-for="@ColorsSettingsModel.SettingsColor.LinkHoverColor" class="" id="labelLinkHoverColor"></label>
+                </div>
+                <div class="color-sample" style="background-color: @ColorsSettingsModel.SettingsColor.LinkHoverColor" id="linkHoverColor"></div>
+            </div>
+        </div>
+        <div class="col-6">
+            <h3 class="header-1 admin-header-color">Цвета пагинации</h3>
+            <div class="d-flex">
+                <div class="form-floating m-1 flex-grow-1">
+                    <select class="form-select " id="selectPaginationActiveColor" asp-for="@ColorsSettingsModel.SettingsColor.PaginationActiveColor">
+                        @foreach (string elem in dropList)
+                        {
+                            <option value="@elem" style="background-color: @elem;">@elem</option>
+                        }
+                    </select>
+                    <label asp-for="@ColorsSettingsModel.SettingsColor.PaginationActiveColor" class="" id="labelPaginationActiveColor"></label>
+                </div>
+                <div class="color-sample" style="background-color: @ColorsSettingsModel.SettingsColor.PaginationActiveColor" id="paginationActiveColor"></div>
+            </div>
+            <div class="d-flex">
+                <div class="form-floating m-1 flex-grow-1">
+                    <select class="form-select " id="selectPaginationHoverColor" asp-for="@ColorsSettingsModel.SettingsColor.PaginationHoverColor">
+                        @foreach (string elem in dropList)
+                        {
+                            <option value="@elem" style="background-color: @elem;">@elem</option>
+                        }
+                    </select>
+                    <label asp-for="@ColorsSettingsModel.SettingsColor.PaginationHoverColor" class="" id="labelPaginationHoverColor"></label>
+                </div>
+                <div class="color-sample" style="background-color: @ColorsSettingsModel.SettingsColor.PaginationHoverColor" id="paginationHoverColor"></div>
+            </div>
+            <div class="d-flex">
+                <div class="form-floating m-1 flex-grow-1">
+                    <select class="form-select " id="selectPaginationDisabledColor" asp-for="@ColorsSettingsModel.SettingsColor.PaginationDisabledColor">
+                        @foreach (string elem in dropList)
+                        {
+                            <option value="@elem" style="background-color: @elem;">@elem</option>
+                        }
+                    </select>
+                    <label asp-for="@ColorsSettingsModel.SettingsColor.PaginationDisabledColor" class="" id="labelPaginationDisabledColor"></label>
+                </div>
+                <div class="color-sample" style="background-color: @ColorsSettingsModel.SettingsColor.PaginationDisabledColor" id="paginationDisabledColor"></div>
+            </div>
+            <div class="d-flex">
+                <div class="form-floating m-1 flex-grow-1">
+                    <select class="form-select " id="selectPaginationBorderColor" asp-for="@ColorsSettingsModel.SettingsColor.PaginationBorderColor">
+                        @foreach (string elem in dropList)
+                        {
+                            <option value="@elem" style="background-color: @elem;">@elem</option>
+                        }
+                    </select>
+                    <label asp-for="@ColorsSettingsModel.SettingsColor.PaginationBorderColor" class="" id="labelPaginationBorderColor"></label>
+                </div>
+                <div class="color-sample" style="background-color: @ColorsSettingsModel.SettingsColor.PaginationBorderColor" id="paginationBorderColor"></div>
+            </div>
+            <div class="d-flex">
+                <div class="form-floating m-1 flex-grow-1">
+                    <select class="form-select " id="selectPaginationBorderHoverColor" asp-for="@ColorsSettingsModel.SettingsColor.PaginationBorderHoverColor">
+                        @foreach (string elem in dropList)
+                        {
+                            <option value="@elem" style="background-color: @elem;">@elem</option>
+                        }
+                    </select>
+                    <label asp-for="@ColorsSettingsModel.SettingsColor.PaginationBorderHoverColor" class="" id="labelPaginationBorderHoverColor"></label>
+                </div>
+                <div class="color-sample" style="background-color: @ColorsSettingsModel.SettingsColor.PaginationBorderHoverColor" id="paginationBorderHoverColor"></div>
+            </div>
+            <div class="d-flex">
+                <div class="form-floating m-1 flex-grow-1">
+                    <select class="form-select " id="selectPaginationFontColor" asp-for="@ColorsSettingsModel.SettingsColor.PaginationFontColor">
+                        @foreach (string elem in dropList)
+                        {
+                            <option value="@elem" style="background-color: @elem;">@elem</option>
+                        }
+                    </select>
+                    <label asp-for="@ColorsSettingsModel.SettingsColor.PaginationFontColor" class="" id="labelPaginationFontColor"></label>
+                </div>
+                <div class="color-sample" style="background-color: @ColorsSettingsModel.SettingsColor.PaginationFontColor" id="paginationFontColor"></div>
+            </div>
+            <div class="d-flex">
+                <div class="form-floating m-1 flex-grow-1">
+                    <select class="form-select " id="selectPaginationFontHoverColor" asp-for="@ColorsSettingsModel.SettingsColor.PaginationFontHoverColor">
+                        @foreach (string elem in dropList)
+                        {
+                            <option value="@elem" style="background-color: @elem;">@elem</option>
+                        }
+                    </select>
+                    <label asp-for="@ColorsSettingsModel.SettingsColor.PaginationFontHoverColor" class="" id="labelPaginationFontHoverColor"></label>
+                </div>
+                <div class="color-sample" style="background-color: @ColorsSettingsModel.SettingsColor.PaginationFontHoverColor" id="paginationFontHoverColor"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-6">
+            <h3 class="header-2 admin-header-color">Цвета верхнего меню категорий</h3>
+            <div class="d-flex">
+                <div class="form-floating m-1 flex-grow-1">
+                    <select class="form-select " id="selectMenuBackgroundColor" asp-for="@ColorsSettingsModel.SettingsColor.MenuBackgroundColor">
+                        @foreach (string elem in dropList)
+                        {
+                            <option value="@elem" style="background-color: @elem;">@elem</option>
+                        }
+                    </select>
+                    <label asp-for="@ColorsSettingsModel.SettingsColor.MenuBackgroundColor" class="" id="labelMenuBackgroundColor"></label>
+                </div>
+                <div class="color-sample" style="background-color: @ColorsSettingsModel.SettingsColor.MenuBackgroundColor" id="menuBackgroundColor"></div>
+            </div>
+            <div class="d-flex">
+                <div class="form-floating m-1 flex-grow-1">
+                    <select class="form-select " id="selectMenuFontColor" asp-for="@ColorsSettingsModel.SettingsColor.MenuFontColor">
+                        @foreach (string elem in dropList)
+                        {
+                            <option value="@elem" style="background-color: @elem;">@elem</option>
+                        }
+                    </select>
+                    <label asp-for="@ColorsSettingsModel.SettingsColor.MenuFontColor" class="" id="labelMenuFontColor"></label>
+                </div>
+                <div class="color-sample" style="background-color: @ColorsSettingsModel.SettingsColor.MenuFontColor" id="menuFontColor"></div>
+            </div>
+            <div class="d-flex">
+                <div class="form-floating m-1 flex-grow-1">
+                    <select class="form-select " id="selectMenuBackgroundHoverColor" asp-for="@ColorsSettingsModel.SettingsColor.MenuBackgroundHoverColor">
+                        @foreach (string elem in dropList)
+                        {
+                            <option value="@elem" style="background-color: @elem;">@elem</option>
+                        }
+                    </select>
+                    <label asp-for="@ColorsSettingsModel.SettingsColor.MenuBackgroundHoverColor" class="" id="labelMenuBackgroundHoverColor"></label>
+                </div>
+                <div class="color-sample" id="menuBackgroundHoverColor" style="background-color: @ColorsSettingsModel.SettingsColor.MenuBackgroundHoverColor"></div>
+            </div>
+            <div class="d-flex">
+                <div class="form-floating m-1 flex-grow-1">
+                    <select class="form-select" id="selectMenuFontHoverColor" asp-for="@ColorsSettingsModel.SettingsColor.MenuFontHoverColor">
+                        @foreach (string elem in dropList)
+                        {
+                            <option value="@elem" style="background-color: @elem;">@elem</option>
+                        }
+                    </select>
+                    <label asp-for="@ColorsSettingsModel.SettingsColor.MenuFontHoverColor" class="" id="labelMenuFontHoverColor"></label>
+                </div>
+                <div class="color-sample" id="menuFontHoverColor" style="background-color: @ColorsSettingsModel.SettingsColor.MenuFontHoverColor"></div>
+            </div>
+            <div class="d-flex">
+                <div class="form-floating m-1 flex-grow-1">
+                    <select class="form-select" id="selectMenuBorderColor" asp-for="@ColorsSettingsModel.SettingsColor.MenuBorderColor">
+                        @foreach (string elem in dropList)
+                        {
+                            <option value="@elem" style="background-color: @elem;">@elem</option>
+                        }
+                    </select>
+                    <label asp-for="@ColorsSettingsModel.SettingsColor.MenuBorderColor" class="" id="labelMenuBorderColor"></label>
+                </div>
+                <div class="color-sample" id="menuBorderColor" style="background-color: @ColorsSettingsModel.SettingsColor.MenuBorderColor"></div>
+            </div>
+            <div class="d-flex">
+                <div class="form-floating m-1 flex-grow-1">
+                    <select class="form-select " id="selectMenuBorderHoverColor" asp-for="@ColorsSettingsModel.SettingsColor.MenuBorderHoverColor">
+                        @foreach (string elem in dropList)
+                        {
+                            <option value="@elem" style="background-color: @elem;">@elem</option>
+                        }
+                    </select>
+                    <label asp-for="@ColorsSettingsModel.SettingsColor.MenuBorderHoverColor" class="" id="labelMenuBorderHoverColor"></label>
+                </div>
+                <div class="color-sample" id="menuBorderHoverColor" style="background-color: @ColorsSettingsModel.SettingsColor.MenuBorderHoverColor"></div>
+            </div>
+        </div>
+        <div class="col-6">
+            <h3 class="header-2 admin-header-color">Цвета административной панели</h3>
+            <div class="d-flex">
+                <div class="form-floating m-1 flex-grow-1">
+                    <select class="form-select " id="selectAdminFontColor" asp-for="@ColorsSettingsModel.SettingsColor.AdminFontColor">
+                        @foreach (string elem in dropList)
+                        {
+                            <option value="@elem" style="background-color: @elem;">@elem</option>
+                        }
+                    </select>
+                    <label asp-for="@ColorsSettingsModel.SettingsColor.AdminFontColor" class="" id="labelAdminFontColor"></label>
+                </div>
+                <div class="color-sample" style="background-color: @ColorsSettingsModel.SettingsColor.AdminFontColor" id="adminFontColor"></div>
+            </div>
+            <div class="d-flex">
+                <div class="form-floating m-1 flex-grow-1">
+                    <select class="form-select " id="selectAdminHeaderColor" asp-for="@ColorsSettingsModel.SettingsColor.AdminHeaderColor">
+                        @foreach (string elem in dropList)
+                        {
+                            <option value="@elem" style="background-color: @elem;">@elem</option>
+                        }
+                    </select>
+                    <label asp-for="@ColorsSettingsModel.SettingsColor.AdminHeaderColor" class="" id="labelAdminHeaderColor"></label>
+                </div>
+                <div class="color-sample" style="background-color: @ColorsSettingsModel.SettingsColor.AdminHeaderColor" id="adminHeaderColor"></div>
+            </div>
+            <div class="d-flex">
+                <div class="form-floating m-1 flex-grow-1">
+                    <select class="form-select " id="selectAdminBackgroundColor" asp-for="@ColorsSettingsModel.SettingsColor.AdminBackgroundColor">
+                        @foreach (string elem in dropList)
+                        {
+                            <option value="@elem" style="background-color: @elem;">@elem</option>
+                        }
+                    </select>
+                    <label asp-for="@ColorsSettingsModel.SettingsColor.AdminBackgroundColor" class="" id="labelAdminBackgroundColor"></label>
+                </div>
+                <div class="color-sample" style="background-color: @ColorsSettingsModel.SettingsColor.AdminBackgroundColor" id="adminBackgroundColor"></div>
+            </div>
+            <div class="d-flex">
+                <div class="form-floating m-1 flex-grow-1">
+                    <select class="form-select " id="selectAdminMenuBackgroundColor" asp-for="@ColorsSettingsModel.SettingsColor.AdminMenuBackgroundColor">
+                        @foreach (string elem in dropList)
+                        {
+                            <option value="@elem" style="background-color: @elem;">@elem</option>
+                        }
+                    </select>
+                    <label asp-for="@ColorsSettingsModel.SettingsColor.AdminMenuBackgroundColor" class="" id="labelAdminMenuBackgroundColor"></label>
+                </div>
+                <div class="color-sample" style="background-color: @ColorsSettingsModel.SettingsColor.AdminMenuBackgroundColor" id="adminMenuBackgroundColor"></div>
+            </div>
+            <div class="d-flex">
+                <div class="form-floating m-1 flex-grow-1">
+                    <select class="form-select " id="selectAdminMenuFontColor" asp-for="@ColorsSettingsModel.SettingsColor.AdminMenuFontColor">
+                        @foreach (string elem in dropList)
+                        {
+                            <option value="@elem" style="background-color: @elem;">@elem</option>
+                        }
+                    </select>
+                    <label asp-for="@ColorsSettingsModel.SettingsColor.AdminMenuFontColor" class="" id="labelAdminMenuFontColor"></label>
+                </div>
+                <div class="color-sample" style="background-color: @ColorsSettingsModel.SettingsColor.AdminMenuFontColor" id="adminMenuFontColor"></div>
+            </div>
+            <div class="d-flex">
+                <div class="form-floating m-1 flex-grow-1">
+                    <select class="form-select " id="selectAdminMenuFontHoverColor" asp-for="@ColorsSettingsModel.SettingsColor.AdminMenuFontHoverColor">
+                        @foreach (string elem in dropList)
+                        {
+                            <option value="@elem" style="background-color: @elem;">@elem</option>
+                        }
+                    </select>
+                    <label asp-for="@ColorsSettingsModel.SettingsColor.AdminMenuFontHoverColor" class="" id="labelAdminMenuFontHoverColor"></label>
+                </div>
+                <div class="color-sample" style="background-color: @ColorsSettingsModel.SettingsColor.AdminMenuFontHoverColor" id="adminMenuFontHoverColor"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row>">
+        <div class="col-12">
+            <input class="btn btn-outline-secondary form-control m-1" type="submit" value="Сохранить" />
+        </div>
+    </div>
+
+</form>

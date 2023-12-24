@@ -1,0 +1,67 @@
+﻿@{
+}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - NewsSite</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/NewsSite.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <div class="small d-flex justify-content-end bg-secondary p-0"> <partial name="_LoginPartial" /></div>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-page="/Index" asp-route-pageNum="1"><img height="65" src="~/images/logo.png" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+                    <partial name="_SearchPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="top-menu">
+        @foreach (var elem in IndexModel.Categories)
+        {
+            <a class="text-decoration-none btn-menu-item btn-menu" asp-page="SelectByCategory" asp-route-category="@elem.CategoryName">@elem.CategoryName</a>
+        }
+    </div>
+    <hr />
+
+    <div class="container-fluid">
+        <main role="main" class="pb-3">
+            <div class="row">
+                <div class="col-sm-12  col-lg-3 bg-light"><partial name="_LeftBarPartial" /></div>
+
+                <div class="col-sm-12 col-lg-6 bg-light">
+                    @RenderBody()
+                    <hr />
+                    <partial name="_ReadMoreArticlesPartial" />
+                    <partial name="_LastDayArticlesPartial" />
+                </div>
+
+                <div class="col-sm-12 col-lg-3 bg-light"><partial name="_RightBarPartial" /></div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - NewsSite - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

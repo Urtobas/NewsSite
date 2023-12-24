@@ -1,0 +1,35 @@
+﻿@{
+}
+<h2 class="header-1 shadow p-1">Главное</h2>
+<div class="container-fluid">
+    <div class="row">
+        @foreach (var elem in IndexModel.ImportantArticles)
+        {
+            <div class="card">
+                <div class="card-body">
+                    <img class="card-img" src="@elem.PathToMainPhoto" style="max-height: 12rem; max-width:18rem;" alt="@elem.ArticleTitle" />
+                    <div class="card-title">
+                        <a class="text-decoration-none header-3 fw-bold"
+                           asp-page="ArticlePage" asp-route-id="@elem.Id">@elem.ArticleTitle</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+   
+    <div class="row">
+        <h2 class="header-1 shadow p-1 mt-2">Финансы</h2>
+        @foreach (var elem in IndexModel.FinanceArticles)
+        {
+            <div class="card">
+                <div class="card-body">
+                    <img class="card-img" src="@elem.PathToMainPhoto" style="max-height: 12rem; max-width:18rem;" alt="@elem.ArticleTitle" />
+                    <div class="card-title">
+                        <a class="text-decoration-none header-3 fw-bold"
+                           asp-page="ArticlePage" asp-route-id="@elem.Id">@elem.ArticleTitle</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

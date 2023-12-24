@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - NewsSite</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/NewsSite.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light admin-menu-bg border-bottom box-shadow mb-3">
+            <div class="container-fluid">             
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="container-fluid admin-bg admin-font-color">
+        <div class="row">
+            <div class="col-lg-2 admin-menu-bg btn-sm">
+                <a class="d-block text-decoration-none admin-menu-font-color" asp-area="Identity" asp-page="AddArticle">Добавить новость</a>
+
+                <a class="d-block text-decoration-none admin-menu-font-color" asp-area="Identity" asp-page="AdminDashboard" asp-route-category="">Все статьи</a>
+                <a class="d-block text-decoration-none admin-menu-font-color" asp-area="Identity" asp-page="AdminDashboardUsers">Пользователи</a>
+                <details open>
+                    <summary class="d-block text-decoration-none text-white-dark">Настройки</summary>
+                    <a class="d-block text-decoration-none admin-menu-font-color ms-3" asp-page="IndexSettings">Главная страница</a>
+                    <a class="d-block text-decoration-none admin-menu-font-color ms-3" asp-page="ColorsSettings">Цветовая схема</a>
+                    <a class="d-block text-decoration-none admin-menu-font-color ms-3" asp-page="CategoryMenuSettings">Меню категорий</a>
+                    <a class="d-block text-decoration-none admin-menu-font-color ms-3" asp-page="Logo">Логотип</a>
+                    <a class="d-block text-decoration-none admin-menu-font-color ms-3" asp-page="MainMenuSettings">Подвал</a>
+                    <a class="d-block text-decoration-none admin-menu-font-color ms-3" asp-page="ArticleSettings">Статья</a>
+               </details>
+                <a class="d-block text-decoration-none admin-menu-font-color" asp-page="StatisticsPage">Статистика сайта</a>
+                <a class="d-block text-decoration-none admin-menu-font-color" asp-page="Index" target="_blank">На сайт</a>
+               
+            </div>
+            <div class="col-lg-10">@RenderBody()</div>
+        </div>
+           
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - NewsSite - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+   
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

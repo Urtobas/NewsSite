@@ -1,0 +1,34 @@
+﻿@page "{id?}/{userClaimValue?}"
+@model NewsSite.Areas.Identity.Pages.UserInfoPageModel
+@{
+}
+<h1>Страница информации о пользователе</h1>
+
+<form method="post">
+ 
+    <div class="form-floating">
+        @if (Model.SelectedUser != null)
+        {
+            <input class=" alert alert-primary" readonly role="alert" value="@Model.SelectedUser.Email" name="email"/>
+            <input class="visually-hidden" value="@Model.SelectedUser.Id" name="id"/>
+        }
+        else
+        {
+            <div class=" alert alert-danger" role="alert">Пользователь не найден</div>
+        }
+    </div>
+    <div class="form-floating">
+        <select class="form-select" asp-for="@Model.UserClaimValue" name="userClaimValue">
+            <option>admin</option>
+            <option>moderator</option>
+            <option>user</option>
+            <option>superUser</option>
+        </select>
+        <label asp-for="@Model.UserClaimValue"></label>
+    </div>
+    <div class="form-floating">
+        <input class="form-control btn btn-outline-secondary" type="submit" value="Сохранить изменения"/>
+    </div>
+
+</form>
+

@@ -1,0 +1,57 @@
+﻿@page "{category?}/{pageNum?}"
+@using NewsSite.HtmlHelpers;
+@model NewsSite.Areas.Identity.Pages.AdminDashboardModel
+@{
+    Layout = "/Areas/Identity/Pages/Shared/_Layout.cshtml";
+}
+<h1 class="header-1 admin-header-color">Панель администратора</h1>
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>Название статьи</th>
+            <th>Автор</th>
+            <th>Дата публ.</th>
+            <th>Категория</th>
+            <th>Просмотры</th>
+            <th>○</th>
+        </tr>
+        @foreach (var elem in AdminDashboardModel.PaginationModel.Result)
+        {
+            <tr class="small">
+                @if (@elem.ArticleTitle.Length > 40)
+                {
+                    <td title="@elem.ArticleTitle (Перейти на сайт)"><a class="text-decoration-none text-dark" asp-page="ArticlePage" asp-route-id="@elem.Id" target="_blank">@elem.ArticleTitle.Substring(0, 40)...</a></td>
+                }
+               else 
+                {
+                    <td title="@elem.ArticleTitle (Перейти на сайт)"><a class="text-decoration-none text-dark" asp-page="ArticlePage" asp-route-id="@elem.Id" target="_blank">@elem.ArticleTitle</a></td>
+                }
+                <td><a class="text-decoration-none text-dark" asp-page="AdminDashboard" asp-route-category="@elem.Author" title="Выбрать статьи авторства @elem.Author" >@elem.Author</a></td>
+                <td>@elem.PublicationDate.ToString()</td>
+                <td><a class="text-decoration-none text-dark" asp-page="AdminDashboard" asp-route-category="@elem.ArticleCategory" title="Выбрать статьи по категории @elem.ArticleCategory">@elem.ArticleCategory</a></td>
+                <td>@elem.VievsCount</td>
+                <td><a class="text-decoration-none text-dark" asp-page="EditArticle" asp-route-id="@elem.Id" title="Редактировать, удалить статью"><img src="~/images/edit.svg" /></a></td>
+            </tr>
+        }
+</table>
+
+
+    <div class="d-flex justify-content-center">
+        <div class="row">
+            @Html.CreatePagination(AdminDashboardModel.PaginationModel.PageCount,
+        AdminDashboardModel.PaginationModel.PageSize,
+        AdminDashboardModel.PaginationModel.CurrentPage,
+        $"Identity/AdminDashboard/{Model.cach}")
+            <span class="text-secondary small">страница @AdminDashboardModel.PaginationModel.CurrentPage из @AdminDashboardModel.PaginationModel.PageCount</span>
+        </div>
+    </div>
+
+@if (@Model.cach.ToString() == "nocategory")
+{
+    <div class="text-secondary">Все статьи</div>
+}
+else
+{
+    <div class="text-secondary">Статьи в категории "@Model.cach"</div>
+}
+

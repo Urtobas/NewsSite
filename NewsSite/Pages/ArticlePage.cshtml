@@ -1,0 +1,19 @@
+﻿@page "{id}"
+@model NewsSite.Pages.ArticlePageModel
+
+
+
+<h1 class="header-1">@Model.CurrentArticle.ArticleTitle</h1>
+<div class="d-flex justify-content-between">
+    <div class="text-secondary small">@Model.CurrentArticle.PublicationDate.ToString("dd MMMM yyyy")</div>
+    <a class="text-decoration-none text-secondary small" asp-page="SelectByCategory" asp-route-category="@Model.CurrentArticle.ArticleCategory">@Model.CurrentArticle.ArticleCategory</a>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <img src="@Model.CurrentArticle.PathToMainPhoto" class="img-fluid" />
+        <div>@ArticlePageModel.ConvertContent(Model.CurrentArticle.ArticleContent)</div>
+        <div class="d-flex justify-content-end">
+            <div class="text-secondary small">Просмотрено @Model.CurrentArticle.VievsCount раз</div>
+        </div>
+    </div>
+</div>

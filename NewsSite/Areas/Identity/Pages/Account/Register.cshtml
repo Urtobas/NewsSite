@@ -1,0 +1,46 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Регистрация";
+}
+
+<h1 class="display-5">@ViewData["Title"]</h1>
+
+<div class="row bg-secondary rounded-3">
+    <div class="col-10 col-sm-8 col-md-6 offset-1 offset-sm-2 offset-md-3">
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h2 class="display-6">Создать учетную запись</h2>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-floating m-1">
+                <input class="form-control" asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+                <label asp-for="Input.Email"></label>
+                <span asp-validation-for="Input.Email" class="text-danger bg-warning"></span>
+            </div>
+            <div class="form-floating m-1">
+                <input class="form-control" asp-for="Input.RealUserName" class="form-control" aria-required="true" />
+                <label asp-for="Input.RealUserName"></label>
+                <span asp-validation-for="Input.RealUserName" class="text-danger bg-warning"></span>
+            </div>
+            <div class="form-floating m-1">
+                <input class="form-control" asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
+                <label asp-for="Input.Password"></label>
+                <span asp-validation-for="Input.Password" class="text-danger bg-warning"></span>
+            </div>
+            <div class="form-floating m-1">
+                <input class="form-control" asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
+                <label asp-for="Input.ConfirmPassword"></label>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger bg-warning"></span>
+            </div>
+            <div class="form-floating m-1">
+                <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Зарегистрироваться</button>
+            </div>
+           
+        </form>
+    </div>
+  
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,250 @@
+@import "colors.css";
+
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    color: var(--content-text-color);
+}
+
+
+.header-1 {
+    font-size: 1.6rem;
+    color: var(--main-header-color);
+}
+    .header-1:hover {
+        color: var(--main-header-color-hover);
+    }
+
+.header-2 {
+    font-size: 1.2rem;
+    color: var(--main-header-color);
+}
+    .header-2:hover {
+        color: var(--main-header-color-hover);
+    }
+
+.header-3 {
+    font-size: 1.0rem;
+    color: var(--main-header-color);
+}
+    .header-3:hover {
+        color: var(--main-header-color-hover);
+    }
+
+.header-4 {
+    color: var(--main-header-color);
+}
+    .header-4:hover {
+        color: var(--main-header-color-hover);
+    }
+
+.text-white-dark {
+    font-size: 1rem;
+    color: white !important;
+}
+    .text-white-dark:hover {
+        font-size: 1rem;
+        color: #FF2400 !important;
+    }
+
+.multi-line {
+    white-space: pre-wrap;
+}
+
+/*LINK`S COLORS  ***   ÷¬≈“¿ ——€ÀŒ */
+a{
+    color: var(--link-color);
+    text-decoration: none;
+}
+    a:hover {
+        color: var(--link-hover-color);
+        text-decoration: underline !important;
+    }
+
+/*PAGINATION COLORS *** ÷¬≈“¿ œ¿√»Õ¿÷»»*/
+
+.page-link {
+    position: relative;
+    display: block;
+    color: var(--pagination-font-color);
+    text-decoration: none;
+    background-color: var(--pagination-active-color);
+    border: 1px solid var(--pagination-border-color);
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.page-link:hover {
+    z-index: 2;
+    color: var(--pagination-font-hover-color);
+    background-color: var(--pagination-hover-color);
+    border-color: var(--pagination-border-hover-color);
+}
+
+.page-link:focus {
+    z-index: 3;
+    color: #0a58ca;
+    background-color: #e9ecef;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/*‡ÍÚË‚Ì‡ˇ ÍÌÓÔÍ‡ Ì‡‚Ë„‡ˆËË*/
+.page-item.active .page-link {
+    z-index: 3;
+    color: var(--pagination-active-color);
+    background-color: var(--main-header-color);
+    border-color: var(--pagination-border-color);
+}
+
+.page-item.disabled .page-link {
+    color: var(--pagination-font-color);
+    pointer-events: none;
+    background-color: var(--pagination-disabled-color);
+    border-color: var(--pagination-border-color);
+}
+
+
+/*styles of summary's marker*/
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::-moz-list-bullet {
+    list-style-type: none;
+}
+
+summary::marker {
+    display: none;
+}
+
+summary {
+    display: inline-block;
+    padding: .3em .5em .3em .4em;
+    font-size: 1.4em;
+    cursor: pointer;
+}
+
+    summary:before {
+        content: "+";
+        margin-right: .3em;
+    }
+
+details[open] > summary:before {
+    content: "-";
+}
+
+summary ~ * {
+    padding: 0 1em 0 1em;
+}
+
+summary:focus {
+    outline: 0;
+    box-shadow: inset 0 0 1px rgba(0,0,0,0.3), inset 0 0 2px rgba(0,0,0,0.3);
+}
+
+details {
+    display: block;
+    margin-bottom: .5rem;
+}
+blockquote {
+    margin-left: 1rem;
+    padding-left: 1rem;
+    border-left-style: solid;
+    color: var(--blockquote-text-color);
+    border-left-color: var(--blockquote-border-color);
+}
+
+.color-sample {
+    height: auto;
+    width: 4rem;
+    margin: 0.25rem;
+    border-radius: 5%;
+    border-style: solid;
+    border-color: black;
+    border-width: thin;
+}
+
+.top-menu{
+    background-color: var(--menu-background-color);
+    color: var(--menu-font-color);
+    border-color: transparent;
+}
+
+.btn-menu {
+    color: var(--menu-font-color);
+    border-color: var(--menu-border-color);
+}
+
+.btn-menu:hover {
+    background-color: var(--menu-background-hover-color);
+    border-color: var(--menu-border-hover-color);
+}
+
+.btn-menu-item {
+    display: inline-block;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--menu-font-color);
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 2px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1.1rem;
+    border-radius: 0.25rem;
+    transition: color 0.4s ease-in-out, background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+    .btn-menu-item:hover {
+        color: var(--menu-font-hover-color);
+        color: var(--menu-font-hover-color);
+    }
+
+
+/*ADMIN PANEL ¿ƒÃ»Õ œ¿Õ≈À‹*/
+.admin-header-color {
+    color: var(--admin-header-color);
+}
+
+.admin-font-color {
+    color: var(--admin-font-color);
+}
+
+.admin-bg {
+    background-color: var(--admin-background-color);
+}
+
+.admin-menu-bg {
+    background-color: var(--admin-menu-background-color);
+}
+
+.admin-menu-font-color {
+    color: var(--admin-menu-font-color);
+}
+    .admin-menu-font-color:hover {
+        color: var(--admin-menu-font-hover-color);
+    }
+
+
+

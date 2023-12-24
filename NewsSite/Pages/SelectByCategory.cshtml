@@ -1,0 +1,32 @@
+﻿@page "{category}/{pageNum?}"
+@using NewsSite.HtmlHelpers
+@model NewsSite.Pages.SelectByCategoryModel
+@{
+}
+<h2 class="header-1">@RouteData.Values["category"]</h2>
+
+<div class="row">
+    @foreach (var elem in SelectByCategoryModel.PaginationModel.Result)
+    {
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title">
+                    <a class="text-decoration-none header-2 fw-bold"
+                       asp-page="ArticlePage" asp-route-id="@elem.Id">@Html.Raw(elem.ArticleTitle)</a>
+                </div>
+                <div class="card-text text-secondary small">@Html.Raw((@elem.ArticleContent).Substring(0,200))...</div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="row">
+    <div class="d-flex justify-content-center">
+        @Html.CreateCategoryPagination(SelectByCategoryModel.PaginationModel.PageCount,
+        SelectByCategoryModel.PaginationModel.PageSize,
+        SelectByCategoryModel.PaginationModel.CurrentPage,
+        RouteData.Values["category"].ToString())
+    </div>
+    <div class="text-secondary small">страница @SelectByCategoryModel.PaginationModel.CurrentPage из @SelectByCategoryModel.PaginationModel.PageCount</div>
+
+</div>

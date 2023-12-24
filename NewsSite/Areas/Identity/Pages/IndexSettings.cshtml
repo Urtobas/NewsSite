@@ -1,0 +1,90 @@
+﻿@page
+@model NewsSite.Areas.Identity.Pages.IndexSettingsModel
+@{
+    Layout = "/Areas/Identity/Pages/Shared/_Layout.cshtml";
+}
+<h1 class="header-1 admin-header-color">Настройка компонентов</h1>
+<form method="post">
+    <div class="row">
+        <div class="col-6">
+            <div class="form-floating m-1">
+                <input class="form-control" asp-for="@IndexSettingsModel.Settings.IndexPaginationCount" aria-required="true" />
+                <label asp-for="@IndexSettingsModel.Settings.IndexPaginationCount"></label>
+                <span asp-validation-for="@IndexSettingsModel.Settings.IndexPaginationCount" class="text-danger bg-warning"></span>
+            </div>
+
+            <div class="form-floating m-1">
+                <input class="form-control" asp-for="@IndexSettingsModel.Settings.IndexCountPopularArticles" aria-required="true" />
+                <label asp-for="@IndexSettingsModel.Settings.IndexCountPopularArticles"></label>
+                <span asp-validation-for="@IndexSettingsModel.Settings.IndexCountPopularArticles" class="text-danger bg-warning"></span>
+            </div>
+
+            <div class="form-floating m-1">
+                <input class="form-control" asp-for="@IndexSettingsModel.Settings.IndexCountReadMoreArticles" />
+                <label asp-for="@IndexSettingsModel.Settings.IndexCountReadMoreArticles"></label>
+                <span asp-validation-for="@IndexSettingsModel.Settings.IndexCountReadMoreArticles" class="text-danger bg-warning"></span>
+            </div>
+
+            <div class="form-floating m-1">
+                <input class="form-control" asp-for="@IndexSettingsModel.Settings.IndexCountLastDayArticles" />
+                <label asp-for="@IndexSettingsModel.Settings.IndexCountLastDayArticles"></label>
+                <span asp-validation-for="@IndexSettingsModel.Settings.IndexCountLastDayArticles" class="text-danger bg-warning"></span>
+            </div>
+
+            <div class="form-floating m-1">
+                <input class="form-control" asp-for="@IndexSettingsModel.Settings.IndexCountImportantArticles" />
+                <label asp-for="@IndexSettingsModel.Settings.IndexCountImportantArticles"></label>
+                <span asp-validation-for="@IndexSettingsModel.Settings.IndexCountImportantArticles" class="text-danger bg-warning"></span>
+            </div>
+
+            <div class="form-floating m-1">
+                <input class="form-control" asp-for="@IndexSettingsModel.Settings.IndexCountSocialArticles" />
+                <label asp-for="@IndexSettingsModel.Settings.IndexCountSocialArticles"></label>
+                <span asp-validation-for="@IndexSettingsModel.Settings.IndexCountSocialArticles" class="text-danger bg-warning"></span>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-floating m-1">
+                <input class="form-control" asp-for="@IndexSettingsModel.Settings.IndexCountSportArticles" />
+                <label asp-for="@IndexSettingsModel.Settings.IndexCountSportArticles"></label>
+                <span asp-validation-for="@IndexSettingsModel.Settings.IndexCountSportArticles" class="text-danger bg-warning"></span>
+            </div>
+
+            <div class="form-floating m-1">
+                <input class="form-control" asp-for="@IndexSettingsModel.Settings.IndexCountFinanceArticles" />
+                <label asp-for="@IndexSettingsModel.Settings.IndexCountFinanceArticles"></label>
+                <span asp-validation-for="@IndexSettingsModel.Settings.IndexCountFinanceArticles" class="text-danger bg-warning"></span>
+            </div>
+
+            <div class="form-floating m-1">
+                <input class="form-control" asp-for="@IndexSettingsModel.Settings.IndexCountCriminalArticles" />
+                <label asp-for="@IndexSettingsModel.Settings.IndexCountCriminalArticles"></label>
+                <span asp-validation-for="@IndexSettingsModel.Settings.IndexCountCriminalArticles" class="text-danger bg-warning"></span>
+            </div>
+
+            <div class="form-floating m-1">
+                <input class="form-control" asp-for="@IndexSettingsModel.Settings.IndexCountUkraineWarArticles" />
+                <label asp-for="@IndexSettingsModel.Settings.IndexCountUkraineWarArticles"></label>
+                <span asp-validation-for="@IndexSettingsModel.Settings.IndexCountUkraineWarArticles" class="text-danger bg-warning"></span>
+            </div>
+
+            <div class="form-floating m-1">
+                <input class="form-control" asp-for="@IndexSettingsModel.Settings.SelectedCategoryPaginationCount" />
+                <label asp-for="@IndexSettingsModel.Settings.SelectedCategoryPaginationCount"></label>
+                <span asp-validation-for="@IndexSettingsModel.Settings.SelectedCategoryPaginationCount" class="text-danger bg-warning"></span>
+            </div>
+
+            <div class="form-floating m-1">
+                <input class="form-control" asp-for="@IndexSettingsModel.Settings.SearchPaginationCount" />
+                <label asp-for="@IndexSettingsModel.Settings.SearchPaginationCount"></label>
+                <span asp-validation-for="@IndexSettingsModel.Settings.SearchPaginationCount" class="text-danger bg-warning"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="d-flex justify-content-end justify-content-end">
+                <input class="btn btn-outline-secondary form-control m-1" type="submit" value="Сохранить" />
+            </div>
+        </div>
+    </div>
+</form>
+
