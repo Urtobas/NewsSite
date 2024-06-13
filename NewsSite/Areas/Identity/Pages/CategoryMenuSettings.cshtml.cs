@@ -27,6 +27,7 @@ namespace NewsSite.Areas.Identity.Pages
             {
                 _context.Categories.Add(new Category() { CategoryName = category });
                 int result = _context.SaveChanges();
+                CatagoryList = _context.Categories.ToList<Category>();
                 if (result > 0) return Page();
                 else return RedirectToPage("Error", new MessageModel() { Message = "Возникла непредвиденная ошибка при добавлении категории"});
             }

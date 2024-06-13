@@ -24,7 +24,6 @@ builder.Services.AddAuthorization(opt =>
 });
 builder.Services.AddRazorPages(opt =>
 {
-    //opt.Conventions.AuthorizePage("/EditArticle", "OnlyForAdminPolicy");
     opt.Conventions.AuthorizeAreaPage("/Identity", "/Pages/EditArticle", "OnlyForAdminPolicy");
 });
 

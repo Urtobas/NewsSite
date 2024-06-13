@@ -10,7 +10,7 @@ namespace NewsSite.Areas.Identity.Pages
     public class IndexSettingsModel : PageModel
     {
         private readonly ApplicationDbContext _context;
-        public static ColorsSettings Settings { get; set; }
+        public static ColorsSettings? Settings { get; set; }
 
         public IndexSettingsModel(ApplicationDbContext context)
         {
@@ -57,6 +57,23 @@ namespace NewsSite.Areas.Identity.Pages
                 Settings.SearchPaginationCount = settings.SearchPaginationCount;
             }
 
+            else if (Settings == null)
+            {
+                Settings = new()
+                {
+                    IndexCountCriminalArticles = 2,
+                    IndexCountFinanceArticles = 2,
+                    IndexCountImportantArticles = 6,
+                    IndexCountLastDayArticles = 4,
+                    IndexCountPopularArticles = 10,
+                    IndexCountReadMoreArticles = 6,
+                    IndexCountSocialArticles = 3,
+                    IndexCountSportArticles = 2,
+                    IndexCountUkraineWarArticles = 1
+                };
+                _context.AppSettings.Add(Settings);
+                _context.SaveChanges();
+            }
 
             if (ModelState.IsValid && Settings != null && HttpContext.User.HasClaim("Status","admin"))
             {
